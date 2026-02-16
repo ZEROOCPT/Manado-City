@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE BEAUTY OF MANADO</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="home">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="#home">
+                    <div class="placeholder-img" style="width: 150px; height: 50px; border-radius: 5px;">LOGO</div>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#sejarah">Sejarah</a></li>
+                <li><a href="#peta">Peta</a></li>
+                <li><a href="#makanan">Makanan</a></li>
+                <li><a href="#tradisi">Tradisi</a></li>
+                <li><a href="#wisata">Wisata</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="iamges/landingimage.jpg" alt="Manado Landing" class="hero-bg">
+        <div class="hero-content">
+            <h1>THE BEAUTY OF</h1>
+            <h2>MANADO</h2>
+            <p class="hero-subtitle">Kota Manado</p>
+            <div class="section-divider"></div>
+            <p class="hero-description">Pesona Kota Menado di Sulawesi Utara</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sejarah">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-number">01</div>
+                    <h3>Tentang Manado</h3>
+                    <p>Selamat datang di Kota Manado, ibu kota Provinsi Sulawesi Utara yang penuh pesona! Kota ini terkenal dengan keindahan bawah lautnya yang menakjubkan, terutama di Taman Nasional Bunaken. Manado juga dikenal dengan keramahan penduduknya, budaya yang kaya, dan kuliner khas Minahasa yang pedas dan lezat. Sebagai kota multikultural, Manado memiliki beragam tempat ibadah dan toleransi beragama yang tinggi.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-number">02</div>
+                    <h3>Kenapa Harus Ke Manado?</h3>
+                    <p>Manado menawarkan pengalaman wisata yang lengkap, mulai dari diving dan snorkeling di Bunaken yang terkenal di seluruh dunia, menjelajahi keindahan alam Gunung Lokon dan Danau Tondano, hingga menikmati kuliner khas seperti Tinutuan (Bubur Manado), Cakalang Fufu, dan Rica-Rica. Keramahan masyarakat Minahasa dan keindahan alamnya yang memukau menjadikan Manado destinasi wisata yang wajib dikunjungi!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="peta" class="map-section">
+        <div class="container">
+            <h2 class="section-title">PETA MANADO</h2>
+            <div class="section-divider"></div>
+            <p style="text-align: center; color: #666; margin-bottom: 2rem;">Lokasi Kota Manado di Sulawesi Utara, Indonesia</p>
+            <div id="map"></div>
+        </div>
+    </section>
+
+    <!-- Nature Section -->
+    <section class="nature-section">
+        <div class="container">
+            <div class="nature-header">
+                <h2>//NATURE OF Manado</h2>
+                <div class="section-divider"></div>
+                <p>Kota Manado memiliki keindahan alam yang luar biasa, dari pantai dan laut yang menakjubkan hingga pegunungan yang hijau. Keunikan budaya Minahasa masih tetap lestari hingga kini.</p>
+            </div>
+
+            <div class="nature-grid">
+                <div class="nature-card">
+                    <img src="iamges/TamanNasionalBunaken.jpg" alt="Taman Nasional Bunaken">
+                    <div class="nature-overlay">
+                        <h3>Manado</h3>
+                        <div class="section-divider" style="margin: 0.5rem 0;"></div>
+                        <p>Taman Nasional Bunaken</p>
+                    </div>
+                </div>
+                <div class="nature-card">
+                    <img src="iamges/BoulevardManado.jpg" alt="Boulevard Manado">
+                    <div class="nature-overlay">
+                        <h3>Manado</h3>
+                        <div class="section-divider" style="margin: 0.5rem 0;"></div>
+                        <p>Boulevard Manado</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nature-info-grid">
+                <div class="nature-info-card">
+                    <div class="nature-info-number">01</div>
+                    <h3>Keindahan Alam Manado</h3>
+                    <p>Manado terkenal dengan keindahan bawah lautnya yang spektakuler, terutama di Taman Nasional Bunaken yang merupakan salah satu destinasi diving terbaik di dunia dengan keanekaragaman hayati laut yang luar biasa.</p>
+                </div>
+                <div class="nature-info-card">
+                    <div class="nature-info-number">02</div>
+                    <h3>Arti Nama "Manado"</h3>
+                    <p>Nama "Manado" dipercaya berasal dari kata "Manaró" atau "Manadou" yang berarti "di tepi" atau "di pesisir", menggambarkan lokasi kota yang berada di pesisir pantai Teluk Manado.</p>
+                </div>
+            </div>
+
+            <div class="nature-grid" style="margin-top: 3rem;">
+                <div class="nature-card">
+                    <img src="iamges/DanauTondano.jpg" alt="Danau Tondano">
+                    <div class="nature-overlay">
+                        <h3>Manado</h3>
+                        <div class="section-divider" style="margin: 0.5rem 0;"></div>
+                        <p>Danau Tondano</p>
+                    </div>
+                </div>
+                <div class="nature-card">
+                    <img src="iamges/gununglokoni.jpg" alt="Gunung Lokon">
+                    <div class="nature-overlay">
+                        <h3>Manado</h3>
+                        <div class="section-divider" style="margin: 0.5rem 0;"></div>
+                        <p>Gunung Lokon</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nature-info-card" style="margin-top: 3rem; text-align: center;">
+                <div class="nature-info-number">03</div>
+                <h3>Budaya dan Tradisi di Manado</h3>
+                <p>Manado memiliki budaya Minahasa yang kaya dan unik, termasuk tradisi Mapalus (gotong royong), tarian Kabasaran, dan musik Kolintang yang khas. Masyarakat Manado juga dikenal sangat religius dengan toleransi beragama yang tinggi.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culinary Section -->
+    <section id="makanan" class="culinary-section">
+        <div class="container">
+            <h2 class="section-title">//CULINARY</h2>
+            <div class="section-divider"></div>
+
+            <div class="culinary-item">
+                <div class="culinary-image">
+                    <img src="iamges/Tinutuan(Bubur Manado).jpg" alt="Tinutuan Bubur Manado">
+                </div>
+                <div class="culinary-content">
+                    <p class="culinary-subtitle">Kuliner Khas Manado</p>
+                    <div class="culinary-number">01</div>
+                    <h3>Tinutuan (Bubur Manado)</h3>
+                    <p>Tinutuan atau Bubur Manado adalah makanan khas yang terbuat dari campuran berbagai sayuran seperti kangkung, bayam, labu kuning, dan jagung. Bubur ini biasanya disajikan dengan ikan asin dan sambal roa sebagai pelengkap, sangat cocok untuk sarapan pagi.</p>
+                </div>
+            </div>
+
+            <div class="culinary-item reverse" style="margin-top: 3rem;">
+                <div class="culinary-image">
+                    <img src="iamges/CakalangFufu.jpg" alt="Cakalang Fufu">
+                </div>
+                <div class="culinary-content">
+                    <p class="culinary-subtitle">Kuliner Khas Manado</p>
+                    <div class="culinary-number">02</div>
+                    <h3>Cakalang Fufu</h3>
+                    <p>Cakalang Fufu adalah ikan cakalang yang diasap dengan cara tradisional menggunakan kayu bakau. Ikan ini memiliki tekstur yang padat dan rasa yang gurih. Cakalang Fufu biasanya diolah menjadi berbagai masakan seperti rica-rica atau dabu-dabu.</p>
+                </div>
+            </div>
+
+            <div class="culinary-item" style="margin-top: 3rem;">
+                <div class="culinary-image">
+                    <img src="iamges/Rica-Rica.jpg" alt="Rica-Rica">
+                </div>
+                <div class="culinary-content">
+                    <p class="culinary-subtitle">Kuliner Khas Manado</p>
+                    <div class="culinary-number">03</div>
+                    <h3>Rica-Rica</h3>
+                    <p>Rica-Rica adalah masakan pedas khas Manado yang menggunakan bumbu cabai rawit merah yang banyak. Rica-rica bisa dibuat dari berbagai bahan seperti ayam, ikan, atau cumi. Cita rasanya yang pedas dan gurih membuatnya menjadi favorit banyak orang.</p>
+                </div>
+            </div>
+
+            <div class="culinary-item reverse" style="margin-top: 3rem;">
+                <div class="culinary-image">
+                    <img src="iamges/Brenebon.jpg" alt="Brenebon">
+                </div>
+                <div class="culinary-content">
+                    <p class="culinary-subtitle">Kuliner Khas Manado</p>
+                    <div class="culinary-number">04</div>
+                    <h3>Brenebon</h3>
+                    <p>Brenebon adalah sup kacang merah khas Manado yang dimasak dengan daging sapi atau babi, disajikan dengan bumbu yang kaya rempah. Hidangan ini memiliki cita rasa yang gurih dan sedikit manis, sangat menghangatkan dan cocok dinikmati bersama nasi putih.</p>
+                </div>
+            </div>
+
+            <div class="culinary-item" style="margin-top: 3rem;">
+                <div class="culinary-image">
+                    <img src="iamges/EsKacangMerah.jpg" alt="Es Kacang Merah">
+                </div>
+                <div class="culinary-content">
+                    <p class="culinary-subtitle">Minuman Khas Manado</p>
+                    <div class="culinary-number">05</div>
+                    <h3>Es Kacang Merah</h3>
+                    <p>Es Kacang Merah adalah minuman segar khas Manado yang terbuat dari kacang merah yang direbus dengan gula, kemudian disajikan dengan es serut, susu kental manis, dan sirup. Minuman ini sangat populer sebagai pelepas dahaga di cuaca yang panas.</p>
+                </div>
+            </div>
+
+            <div class="culinary-item reverse" style="margin-top: 3rem;">
+                <div class="culinary-image">
+                    <img src="iamges/CapTikus.jpg" alt="Cap Tikus">
+                </div>
+                <div class="culinary-content">
+                    <p class="culinary-subtitle">Minuman Tradisional Manado</p>
+                    <div class="culinary-number">06</div>
+                    <h3>Cap Tikus</h3>
+                    <p>Cap Tikus adalah minuman beralkohol tradisional khas Minahasa yang dibuat dari aren atau kelapa yang difermentasi dan disuling. Minuman ini memiliki kadar alkohol yang tinggi dan biasanya dikonsumsi pada acara-acara adat atau perayaan tradisional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Section -->
+    <section id="tradisi" class="culture-section">
+        <div class="container">
+            <h2>KEBUDAYAAN</h2>
+            <h2>DI</h2>
+            <div class="section-divider"></div>
+            <h2>KOTA MANADO</h2>
+
+            <div class="culture-grid">
+                <div class="culture-card">
+                    <img src="iamges/TariKabasaran.jpg" alt="Tari Kabasaran">
+                    <div class="culture-card-content">
+                        <div class="culture-number">01.</div>
+                        <h3>Tari Kabasaran</h3>
+                        <p>Tari Kabasaran adalah tarian perang tradisional Minahasa yang menggambarkan keberanian dan semangat juang. Penari menggunakan kostum dengan warna merah dan hitam, serta membawa senjata tradisional. Tarian ini biasanya ditampilkan pada acara-acara adat dan penyambutan tamu penting.</p>
+                    </div>
+                </div>
+
+                <div class="culture-card">
+                    <img src="iamges/MusikKolintang.jpg" alt="Musik Kolintang">
+                    <div class="culture-card-content">
+                        <div class="culture-number">02.</div>
+                        <h3>Musik Kolintang</h3>
+                        <p>Kolintang adalah alat musik tradisional khas Minahasa yang terbuat dari kayu. Alat musik ini dimainkan dengan cara dipukul menggunakan stik khusus dan menghasilkan nada yang merdu. Musik kolintang telah menjadi ikon budaya Sulawesi Utara dan sering dimainkan dalam berbagai acara.</p>
+                    </div>
+                </div>
+
+                <div class="culture-card">
+                    <img src="iamges/Mapalus.jpg" alt="Mapalus">
+                    <div class="culture-card-content">
+                        <div class="culture-number">03.</div>
+                        <h3>Mapalus</h3>
+                        <p>Mapalus adalah tradisi gotong royong masyarakat Minahasa yang masih dilestarikan hingga kini. Tradisi ini mencerminkan semangat kebersamaan dan saling membantu dalam berbagai kegiatan seperti bercocok tanam, membangun rumah, atau mengadakan acara. Mapalus menjadi salah satu nilai luhur budaya Minahasa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tourism Section -->
+    <section id="wisata" class="tourism-section">
+        <div class="container">
+            <div class="tourism-item">
+                <div class="tourism-image">
+                    <img src="iamges/TamanNasionalBunaken.jpg" alt="Taman Nasional Bunaken">
+                </div>
+                <div class="tourism-content">
+                    <div class="tourism-number">01</div>
+                    <h3>Taman Nasional Bunaken</h3>
+                    <p>Taman Nasional Bunaken adalah surga bagi para penyelam dengan keindahan terumbu karang dan keanekaragaman hayati laut yang luar biasa. Dengan visibility air yang jernih hingga 35-40 meter, Bunaken menawarkan pengalaman diving dan snorkeling yang tak terlupakan dengan pemandangan dinding karang vertikal yang spektakuler.</p>
+                </div>
+            </div>
+
+            <div class="tourism-item reverse" style="margin-top: 3rem;">
+                <div class="tourism-image">
+                    <img src="iamges/PulauSiladen.jpg" alt="Pulau Siladen">
+                </div>
+                <div class="tourism-content">
+                    <div class="tourism-number">02</div>
+                    <h3>Pulau Siladen</h3>
+                    <p>Pulau Siladen adalah pulau kecil yang terletak di kawasan Taman Nasional Bunaken. Pulau ini menawarkan pantai berpasir putih yang indah dan air laut yang jernih. Siladen menjadi tempat yang sempurna untuk bersantai, snorkeling, atau sekadar menikmati keindahan alam tropis yang masih asri.</p>
+                </div>
+            </div>
+
+            <div class="tourism-item" style="margin-top: 3rem;">
+                <div class="tourism-image">
+                    <img src="iamges/DanauTondano.jpg" alt="Danau Tondano">
+                </div>
+                <div class="tourism-content">
+                    <div class="tourism-number">03</div>
+                    <h3>Danau Tondano</h3>
+                    <p>Danau Tondano adalah danau vulkanik terbesar di Sulawesi Utara dengan pemandangan yang menakjubkan. Danau ini dikelilingi oleh pegunungan hijau dan menawarkan suasana yang sejuk dan tenang. Pengunjung dapat menikmati pemandangan danau sambil bersantai di restoran-restoran tepi danau atau berkeliling dengan perahu.</p>
+                </div>
+            </div>
+
+            <div class="tourism-item reverse" style="margin-top: 3rem;">
+                <div class="tourism-image">
+                    <img src="iamges/BukitDoaMahawu.jpg" alt="Bukit Doa Mahawu">
+                </div>
+                <div class="tourism-content">
+                    <div class="tourism-number">04</div>
+                    <h3>Bukit Doa Mahawu</h3>
+                    <p>Bukit Doa Mahawu atau Bukit Kasih adalah kompleks tempat ibadah yang unik di Tomohon, dekat Manado. Di tempat ini terdapat berbagai rumah ibadah dari lima agama yang diakui di Indonesia, melambangkan toleransi dan kerukunan beragama. Dari bukit ini, pengunjung dapat menikmati pemandangan kota Tomohon dan sekitarnya.</p>
+                </div>
+            </div>
+
+            <div class="tourism-item" style="margin-top: 3rem;">
+                <div class="tourism-image">
+                    <img src="iamges/GunungLokon1.jpg" alt="Gunung Lokon">
+                </div>
+                <div class="tourism-content">
+                    <div class="tourism-number">05</div>
+                    <h3>Gunung Lokon</h3>
+                    <p>Gunung Lokon adalah gunung berapi aktif yang terletak di Tomohon. Meskipun masih aktif, pendakian ke gunung ini menawarkan pemandangan kawah yang mempesona dan panorama alam sekitar yang indah. Aktivitas vulkanik gunung ini menciptakan fenomena alam yang menarik untuk diamati dari jarak aman.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Janda&Duda Team. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Initialize Leaflet Map centered on Manado
+        const map = L.map('map').setView([1.4748, 124.8421], 12);
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            maxZoom: 19
+        }).addTo(map);
+
+        // Add a marker for Manado
+        const manadoMarker = L.marker([1.4748, 124.8421]).addTo(map);
+        manadoMarker.bindPopup('<b>Kota Manado</b><br>Sulawesi Utara, Indonesia').openPopup();
+
+        // Add marker for Bunaken
+        const bunakenMarker = L.marker([1.6172, 124.7631]).addTo(map);
+        bunakenMarker.bindPopup('<b>Taman Nasional Bunaken</b><br>Destinasi Diving Terkenal');
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,498 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    padding: 1rem 5%;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #ff6b35;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding-top: 80px;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4));
+    z-index: 1;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.3rem;
+}
+
+.hero h2 {
+    font-size: 6rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    letter-spacing: 0.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.hero-description {
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Section Styles */
+section {
+    padding: 5rem 5%;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.section-divider {
+    width: 100px;
+    height: 3px;
+    background: #ff6b35;
+    margin: 1rem auto 3rem;
+}
+
+/* About Section */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.about-card {
+    padding: 2rem;
+}
+
+.about-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ff6b35;
+    margin-bottom: 1rem;
+}
+
+.about-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.about-card p {
+    line-height: 1.8;
+    color: #666;
+}
+
+/* Nature Section */
+.nature-section {
+    background: #f9f9f9;
+}
+
+.nature-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.nature-header h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.nature-header p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.nature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.nature-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.nature-card img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.nature-card:hover img {
+    transform: scale(1.1);
+}
+
+.nature-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    padding: 2rem;
+    color: white;
+}
+
+.nature-overlay h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.nature-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+.nature-info-card {
+    padding: 2rem;
+}
+
+.nature-info-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ff6b35;
+    margin-bottom: 1rem;
+}
+
+/* Map Section */
+.map-section {
+    background: white;
+    padding: 5rem 5%;
+}
+
+#map {
+    width: 100%;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    margin-top: 2rem;
+}
+
+/* Culinary Section */
+.culinary-section {
+    background: #f9f9f9;
+}
+
+.culinary-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.culinary-item {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.culinary-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.culinary-image {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.culinary-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.culinary-image img:hover {
+    transform: scale(1.1);
+}
+
+.culinary-content {
+    flex: 1;
+}
+
+.culinary-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ff6b35;
+    margin-bottom: 1rem;
+}
+
+.culinary-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.culinary-content p {
+    color: #666;
+    line-height: 1.8;
+}
+
+.culinary-subtitle {
+    font-size: 1rem;
+    color: #999;
+    margin-bottom: 1rem;
+}
+
+/* Culture Section */
+.culture-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+}
+
+.culture-section h2 {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+}
+
+.culture-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.culture-card {
+    background: white;
+    color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.culture-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.culture-card-content {
+    padding: 2rem;
+    text-align: left;
+}
+
+.culture-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #667eea;
+    margin-bottom: 1rem;
+}
+
+.culture-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.culture-card p {
+    color: #666;
+    line-height: 1.8;
+}
+
+/* Tourism Section */
+.tourism-section {
+    background: white;
+}
+
+.tourism-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+}
+
+.tourism-item {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.tourism-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.tourism-image {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.tourism-image img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.tourism-image img:hover {
+    transform: scale(1.05);
+}
+
+.tourism-content {
+    flex: 1;
+}
+
+.tourism-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ff6b35;
+    margin-bottom: 1rem;
+}
+
+.tourism-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.tourism-content p {
+    color: #666;
+    line-height: 1.8;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero h2 {
+        font-size: 3rem;
+    }
+
+    .about-grid,
+    .nature-grid,
+    .culinary-grid,
+    .culture-grid,
+    .tourism-grid,
+    .nature-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .culinary-item,
+    .culinary-item.reverse,
+    .tourism-item,
+    .tourism-item.reverse {
+        flex-direction: column;
+    }
+
+    .nav-menu {
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+
+    #map {
+        height: 400px;
+    }
+}
+
+/* Placeholder Image Styles */
+.placeholder-img {
+    background: linear-gradient(45deg, #e0e0e0 25%, #f0f0f0 25%, #f0f0f0 50%, #e0e0e0 50%, #e0e0e0 75%, #f0f0f0 75%, #f0f0f0);
+    background-size: 40px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
