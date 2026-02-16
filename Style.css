@@ -5,7 +5,15 @@
 }
 
 body {
+    margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(rgba(0, 60, 90, 0.75),
+                rgba(0, 120, 170, 0.75)),
+            url("https://images.unsplash.com/photo-1589308078054-832c4a5b8c5c?q=80&w=1920&auto=format&fit=crop");
+    
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
     line-height: 1.6;
     color: #333;
     overflow-x: hidden;
@@ -64,15 +72,19 @@ nav {
     padding-top: 80px;
 }
 
-.hero::before {
-    content: '';
-    position: absolute;
+body::before {
+    content: "";
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4));
-    z-index: 1;
+    background:
+        linear-gradient(rgba(0, 80, 120, 0.6),
+            rgba(0, 40, 80, 0.8)),
+        url("https://www.transparenttextures.com/patterns/palm-leaf.png");
+    opacity: 0.25;
+    z-index: -1;
 }
 
 .hero-bg {
@@ -117,7 +129,17 @@ nav {
 
 /* Section Styles */
 section {
-    padding: 5rem 5%;
+    animation: fadeUp 1s ease;
+}
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .container {
@@ -164,12 +186,14 @@ section {
 
 .about-card p {
     line-height: 1.8;
-    color: #666;
+    color: white;
 }
 
 /* Nature Section */
 .nature-section {
-    background: #f9f9f9;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    color: white;
 }
 
 .nature-header {
@@ -184,7 +208,7 @@ section {
 
 .nature-header p {
     font-size: 1.1rem;
-    color: #666;
+    color: white;
     max-width: 800px;
     margin: 0 auto;
 }
@@ -249,8 +273,9 @@ section {
 
 /* Map Section */
 .map-section {
-    background: white;
-    padding: 5rem 5%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    color: white;
 }
 
 #map {
@@ -263,7 +288,9 @@ section {
 
 /* Culinary Section */
 .culinary-section {
-    background: #f9f9f9;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    color: white;
 }
 
 .culinary-grid {
@@ -317,7 +344,7 @@ section {
 }
 
 .culinary-content p {
-    color: #666;
+    color: white;
     line-height: 1.8;
 }
 
@@ -378,13 +405,15 @@ section {
 }
 
 .culture-card p {
-    color: #666;
+    color: white;
     line-height: 1.8;
 }
 
 /* Tourism Section */
 .tourism-section {
-    background: white;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    color: white;
 }
 
 .tourism-grid {
@@ -437,7 +466,7 @@ section {
 }
 
 .tourism-content p {
-    color: #666;
+    color: white;
     line-height: 1.8;
 }
 
@@ -459,13 +488,12 @@ footer {
         font-size: 3rem;
     }
 
-    .about-grid,
-    .nature-grid,
-    .culinary-grid,
-    .culture-grid,
-    .tourism-grid,
-    .nature-info-grid {
-        grid-template-columns: 1fr;
+    .about-card p,
+    .nature-header p,
+    .culinary-content p,
+    .tourism-content p,
+    .culture-card p {
+        color: #eeeeee;
     }
 
     .culinary-item,
@@ -496,3 +524,4 @@ footer {
     font-size: 1.2rem;
     font-weight: 600;
 }
+
