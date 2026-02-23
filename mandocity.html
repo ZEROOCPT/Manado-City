@@ -10,9 +10,14 @@
 </head>
 <body>
 
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
     <!-- Navigation -->
     <nav id="home">
         <div class="nav-container">
+            <span class="nav-logo">MND</span>
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#sejarah">Sejarah</a></li>
@@ -29,35 +34,33 @@
     <section class="hero">
         <img src="https://cakraloka.co.id/wp-content/uploads/2023/11/Tempat-Wisata-Manado-Terbaik-Cakraloka.jpg" alt="Manado Landing" class="hero-bg">
         <div class="hero-content">
-            <h1>THE BEAUTY OF</h1>
+            <span class="hero-eyebrow">Sulawesi Utara · Indonesia</span>
+            <h1>The Beauty of</h1>
             <h2>MANADO</h2>
             <p class="hero-subtitle">Kota Manado</p>
             <div class="section-divider"></div>
-            <p class="hero-description">Pesona Kota Menado di Sulawesi Utara</p>
+            <p class="hero-description">Pesona Kota Manado di Sulawesi Utara</p>
+        </div>
+        <div class="hero-scroll">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="sejarah">
+    <section id="sejarah" class="reveal">
         <div class="container">
             <div class="about-grid">
                 <div class="about-card">
                     <div class="about-number">01</div>
                     <h3>Tentang Manado</h3>
-                    <p>
-                    Selamat datang di Kota Manado, ibu kota Provinsi Sulawesi Utara yang penuh pesona dan keunikan. Kota ini terletak di pesisir Teluk Manado dan dikelilingi oleh pegunungan serta laut yang indah, menciptakan kombinasi alam yang sangat memukau. Manado dikenal sebagai salah satu kota dengan kualitas hidup yang baik di Indonesia, serta masyarakatnya yang ramah, terbuka, dan penuh toleransi.
-
-                    Selain terkenal dengan Taman Nasional Bunaken yang mendunia, Manado juga memiliki sejarah panjang sebagai kota pelabuhan penting sejak masa kolonial. Kota ini menjadi tempat pertemuan berbagai budaya, termasuk Minahasa, Tionghoa, dan Eropa, yang membentuk identitas kota yang unik hingga saat ini. Keindahan alam, kekayaan budaya, dan perkembangan kota yang modern menjadikan Manado sebagai salah satu destinasi terbaik di Indonesia.
-                    </p>
+                    <p>Selamat datang di Kota Manado, ibu kota Provinsi Sulawesi Utara yang penuh pesona dan keunikan. Kota ini terletak di pesisir Teluk Manado dan dikelilingi oleh pegunungan serta laut yang indah, menciptakan kombinasi alam yang sangat memukau.<br><br>Selain terkenal dengan Taman Nasional Bunaken yang mendunia, Manado juga memiliki sejarah panjang sebagai kota pelabuhan penting sejak masa kolonial, tempat pertemuan budaya Minahasa, Tionghoa, dan Eropa.</p>
                 </div>
                 <div class="about-card">
                     <div class="about-number">02</div>
                     <h3>Kenapa Harus Ke Manado?</h3>
-                    <p>
-                    Manado menawarkan pengalaman wisata yang lengkap dan tak terlupakan bagi setiap pengunjung. Anda dapat menikmati keindahan bawah laut Bunaken yang memiliki lebih dari 390 spesies terumbu karang dan ribuan jenis ikan tropis. Selain itu, terdapat gunung berapi aktif seperti Gunung Lokon dan Mahawu yang menawarkan pemandangan spektakuler.
-
-                    Tidak hanya alam, Manado juga terkenal dengan kulinernya yang kaya rasa, seperti Tinutuan, Cakalang Fufu, dan berbagai masakan pedas khas Minahasa. Kota ini juga memiliki banyak tempat wisata modern seperti pusat perbelanjaan, kafe tepi laut, dan boulevard yang indah untuk menikmati matahari terbenam. Kombinasi alam, budaya, dan kuliner menjadikan Manado destinasi yang wajib dikunjungi setidaknya sekali seumur hidup.
-                    </p>
+                    <p>Manado menawarkan pengalaman wisata yang lengkap dan tak terlupakan. Anda dapat menikmati keindahan bawah laut Bunaken yang memiliki lebih dari 390 spesies terumbu karang dan ribuan jenis ikan tropis.<br><br>Tidak hanya alam, Manado juga terkenal dengan kulinernya yang kaya rasa, seperti Tinutuan, Cakalang Fufu, dan berbagai masakan pedas khas Minahasa yang tak terlupakan.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -67,7 +70,7 @@
         <div class="container">
             <h2 class="section-title">PETA MANADO</h2>
             <div class="section-divider"></div>
-            <p style="text-align: center; color: white; margin-bottom: 2rem;">Lokasi Kota Manado di Sulawesi Utara, Indonesia</p>
+            <p>Lokasi Kota Manado di Sulawesi Utara, Indonesia</p>
             <div id="map"></div>
         </div>
     </section>
@@ -76,7 +79,7 @@
     <section class="nature-section">
         <div class="container">
             <div class="nature-header">
-                <h2>//NATURE OF Manado</h2>
+                <h2>// NATURE OF MANADO</h2>
                 <div class="section-divider"></div>
                 <p>Kota Manado memiliki keindahan alam yang luar biasa, dari pantai dan laut yang menakjubkan hingga pegunungan yang hijau. Keunikan budaya Minahasa masih tetap lestari hingga kini.</p>
             </div>
@@ -86,7 +89,6 @@
                     <img src="iamges/TamanNasionalBunaken.jpg" alt="Taman Nasional Bunaken">
                     <div class="nature-overlay">
                         <h3>Manado</h3>
-                        <div class="section-divider" style="margin: 0.5rem 0;"></div>
                         <p>Taman Nasional Bunaken</p>
                     </div>
                 </div>
@@ -94,7 +96,6 @@
                     <img src="iamges/BoulevardManado.jpg" alt="Boulevard Manado">
                     <div class="nature-overlay">
                         <h3>Manado</h3>
-                        <div class="section-divider" style="margin: 0.5rem 0;"></div>
                         <p>Boulevard Manado</p>
                     </div>
                 </div>
@@ -113,12 +114,11 @@
                 </div>
             </div>
 
-            <div class="nature-grid" style="margin-top: 3rem;">
+            <div class="nature-grid" style="margin-top: 1.5rem;">
                 <div class="nature-card">
                     <img src="iamges/DanauTondano.jpg" alt="Danau Tondano">
                     <div class="nature-overlay">
                         <h3>Manado</h3>
-                        <div class="section-divider" style="margin: 0.5rem 0;"></div>
                         <p>Danau Tondano</p>
                     </div>
                 </div>
@@ -126,13 +126,12 @@
                     <img src="https://cdn1-production-images-kly.akamaized.net/jSqbfbsOPPUisY7uahLFtp8faNw=/1200x900/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4841919/original/002398600_1716560987-WhatsApp_Image_2024-05-24_at_21.10.49.jpeg" alt="Gunung Lokon">
                     <div class="nature-overlay">
                         <h3>Manado</h3>
-                        <div class="section-divider" style="margin: 0.5rem 0;"></div>
                         <p>Gunung Lokon</p>
                     </div>
                 </div>
             </div>
 
-            <div class="nature-info-card" style="margin-top: 3rem; text-align: center;">
+            <div class="nature-info-card" style="margin-top: 1.5rem; text-align: center;">
                 <div class="nature-info-number">03</div>
                 <h3>Budaya dan Tradisi di Manado</h3>
                 <p>Manado memiliki budaya Minahasa yang kaya dan unik, termasuk tradisi Mapalus (gotong royong), tarian Kabasaran, dan musik Kolintang yang khas. Masyarakat Manado juga dikenal sangat religius dengan toleransi beragama yang tinggi.</p>
@@ -140,12 +139,10 @@
         </div>
     </section>
 
-    
-
     <!-- Culinary Section -->
     <section id="makanan" class="culinary-section">
         <div class="container">
-            <h2 class="section-title">//CULINARY</h2>
+            <h2 class="section-title">// CULINARY</h2>
             <div class="section-divider"></div>
 
             <div class="culinary-item">
@@ -153,67 +150,67 @@
                     <img src="iamges/Tinutuan(Bubur Manado).jpg" alt="Tinutuan Bubur Manado">
                 </div>
                 <div class="culinary-content">
-                    <p class="culinary-subtitle">Kuliner Khas Manado</p>
+                    <span class="culinary-subtitle">Kuliner Khas Manado</span>
                     <div class="culinary-number">01</div>
                     <h3>Tinutuan (Bubur Manado)</h3>
                     <p>Tinutuan atau Bubur Manado adalah makanan khas yang terbuat dari campuran berbagai sayuran seperti kangkung, bayam, labu kuning, dan jagung. Bubur ini biasanya disajikan dengan ikan asin dan sambal roa sebagai pelengkap, sangat cocok untuk sarapan pagi.</p>
                 </div>
             </div>
 
-            <div class="culinary-item reverse" style="margin-top: 3rem;">
+            <div class="culinary-item reverse">
                 <div class="culinary-image">
                     <img src="iamges/CakalangFufu.jpg" alt="Cakalang Fufu">
                 </div>
                 <div class="culinary-content">
-                    <p class="culinary-subtitle">Kuliner Khas Manado</p>
+                    <span class="culinary-subtitle">Kuliner Khas Manado</span>
                     <div class="culinary-number">02</div>
                     <h3>Cakalang Fufu</h3>
                     <p>Cakalang Fufu adalah ikan cakalang yang diasap dengan cara tradisional menggunakan kayu bakau. Ikan ini memiliki tekstur yang padat dan rasa yang gurih. Cakalang Fufu biasanya diolah menjadi berbagai masakan seperti rica-rica atau dabu-dabu.</p>
                 </div>
             </div>
 
-            <div class="culinary-item" style="margin-top: 3rem;">
+            <div class="culinary-item">
                 <div class="culinary-image">
                     <img src="iamges/Rica-Rica.jpg" alt="Rica-Rica">
                 </div>
                 <div class="culinary-content">
-                    <p class="culinary-subtitle">Kuliner Khas Manado</p>
+                    <span class="culinary-subtitle">Kuliner Khas Manado</span>
                     <div class="culinary-number">03</div>
                     <h3>Rica-Rica</h3>
                     <p>Rica-Rica adalah masakan pedas khas Manado yang menggunakan bumbu cabai rawit merah yang banyak. Rica-rica bisa dibuat dari berbagai bahan seperti ayam, ikan, atau cumi. Cita rasanya yang pedas dan gurih membuatnya menjadi favorit banyak orang.</p>
                 </div>
             </div>
 
-            <div class="culinary-item reverse" style="margin-top: 3rem;">
+            <div class="culinary-item reverse">
                 <div class="culinary-image">
                     <img src="iamges/Brenebon.jpg" alt="Brenebon">
                 </div>
                 <div class="culinary-content">
-                    <p class="culinary-subtitle">Kuliner Khas Manado</p>
+                    <span class="culinary-subtitle">Kuliner Khas Manado</span>
                     <div class="culinary-number">04</div>
                     <h3>Brenebon</h3>
                     <p>Brenebon adalah sup kacang merah khas Manado yang dimasak dengan daging sapi atau babi, disajikan dengan bumbu yang kaya rempah. Hidangan ini memiliki cita rasa yang gurih dan sedikit manis, sangat menghangatkan dan cocok dinikmati bersama nasi putih.</p>
                 </div>
             </div>
 
-            <div class="culinary-item" style="margin-top: 3rem;">
+            <div class="culinary-item">
                 <div class="culinary-image">
                     <img src="https://i.ytimg.com/vi/idiNIH_nzD0/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCN-RpcYrv2t3do0N5R4FIbQlBrPA" alt="Es Kacang Merah">
                 </div>
                 <div class="culinary-content">
-                    <p class="culinary-subtitle">Minuman Khas Manado</p>
+                    <span class="culinary-subtitle">Minuman Khas Manado</span>
                     <div class="culinary-number">05</div>
                     <h3>Es Kacang Merah</h3>
                     <p>Es Kacang Merah adalah minuman segar khas Manado yang terbuat dari kacang merah yang direbus dengan gula, kemudian disajikan dengan es serut, susu kental manis, dan sirup. Minuman ini sangat populer sebagai pelepas dahaga di cuaca yang panas.</p>
                 </div>
             </div>
 
-            <div class="culinary-item reverse" style="margin-top: 3rem;">
+            <div class="culinary-item reverse">
                 <div class="culinary-image">
                     <img src="https://www.flokq.com/blog/wp-content/uploads/2020/12/Cap-Tikus.jpg" alt="Cap Tikus">
                 </div>
                 <div class="culinary-content">
-                    <p class="culinary-subtitle">Minuman Tradisional Manado</p>
+                    <span class="culinary-subtitle">Minuman Tradisional Manado</span>
                     <div class="culinary-number">06</div>
                     <h3>Cap Tikus</h3>
                     <p>Cap Tikus adalah minuman beralkohol tradisional khas Minahasa yang dibuat dari aren atau kelapa yang difermentasi dan disuling. Minuman ini memiliki kadar alkohol yang tinggi dan biasanya dikonsumsi pada acara-acara adat atau perayaan tradisional.</p>
@@ -236,25 +233,23 @@
                     <div class="culture-card-content">
                         <div class="culture-number">01.</div>
                         <h3>Tari Kabasaran</h3>
-                        <p style="color: black;">Tari Kabasaran adalah tarian perang tradisional Minahasa yang menggambarkan keberanian dan semangat juang. Penari menggunakan kostum dengan warna merah dan hitam, serta membawa senjata tradisional. Tarian ini biasanya ditampilkan pada acara-acara adat dan penyambutan tamu penting.</p>
+                        <p style="color: #888880; font-size: 0.88rem; line-height: 1.9;">Tari Kabasaran adalah tarian perang tradisional Minahasa yang menggambarkan keberanian dan semangat juang. Penari menggunakan kostum dengan warna merah dan hitam, serta membawa senjata tradisional.</p>
                     </div>
                 </div>
-
                 <div class="culture-card">
                     <img src="iamges/MusikKolintang.jpg" alt="Musik Kolintang">
                     <div class="culture-card-content">
                         <div class="culture-number">02.</div>
                         <h3>Musik Kolintang</h3>
-                        <p style="color: black;">Kolintang adalah alat musik tradisional khas Minahasa yang terbuat dari kayu. Alat musik ini dimainkan dengan cara dipukul menggunakan stik khusus dan menghasilkan nada yang merdu. Musik kolintang telah menjadi ikon budaya Sulawesi Utara dan sering dimainkan dalam berbagai acara.</p>
+                        <p style="color: #888880; font-size: 0.88rem; line-height: 1.9;">Kolintang adalah alat musik tradisional khas Minahasa yang terbuat dari kayu. Alat musik ini dimainkan dengan cara dipukul menggunakan stik khusus dan menghasilkan nada yang merdu dan khas.</p>
                     </div>
                 </div>
-
                 <div class="culture-card">
                     <img src="iamges/Mapalus.jpg" alt="Mapalus">
                     <div class="culture-card-content">
                         <div class="culture-number">03.</div>
                         <h3>Mapalus</h3>
-                        <p style="color: black;">Mapalus adalah tradisi gotong royong masyarakat Minahasa yang masih dilestarikan hingga kini. Tradisi ini mencerminkan semangat kebersamaan dan saling membantu dalam berbagai kegiatan seperti bercocok tanam, membangun rumah, atau mengadakan acara. Mapalus menjadi salah satu nilai luhur budaya Minahasa.</p>
+                        <p style="color: #888880; font-size: 0.88rem; line-height: 1.9;">Mapalus adalah tradisi gotong royong masyarakat Minahasa yang masih dilestarikan hingga kini, mencerminkan semangat kebersamaan dalam berbagai kegiatan seperti bercocok tanam dan membangun rumah.</p>
                     </div>
                 </div>
             </div>
@@ -268,56 +263,46 @@
             <div class="section-divider"></div>
 
             <div class="suku-grid">
-
                 <div class="suku-card">
-                    <img src="https://cdn.utakatikotak.com/20210403/20210403_113201Suku_Minahasa,_Suku_yang_Mendiami_Daerah_Sulawesi.JPG" alt="Suku Minahasa">
+                    <img src="suku minahasa.jpg" alt="Suku Minahasa">
                     <div class="suku-content">
                         <div class="suku-number">01</div>
                         <h3>Suku Minahasa</h3>
-                        <p>
-                            Suku Minahasa adalah suku asli Manado dan merupakan kelompok etnis terbesar di wilayah ini. 
-                            Mereka dikenal dengan budaya Mapalus (gotong royong), musik Kolintang, dan Tari Kabasaran. 
-                            Suku Minahasa juga terkenal dengan sifat terbuka, ramah, dan menjunjung tinggi toleransi.
-                        </p>
+                        <p>Suku Minahasa adalah suku asli Manado dan merupakan kelompok etnis terbesar di wilayah ini. Mereka dikenal dengan budaya Mapalus, musik Kolintang, dan Tari Kabasaran.</p>
                     </div>
                 </div>
-
                 <div class="suku-card">
                     <img src="https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/31/2024/12/12/baju-adat-laku-tepu-foto-by-beritanusantaracoid-4087879164.jpg" alt="Suku Sangihe">
                     <div class="suku-content">
                         <div class="suku-number">02</div>
                         <h3>Suku Sangihe</h3>
-                        <p>
-                            Suku Sangihe berasal dari Kepulauan Sangihe dan banyak tinggal di Manado. 
-                            Mereka memiliki budaya maritim yang kuat dan terkenal dengan tarian tradisional 
-                            seperti Tari Gunde serta kehidupan yang dekat dengan laut.
-                        </p>
+                        <p>Suku Sangihe berasal dari Kepulauan Sangihe dan banyak tinggal di Manado. Mereka memiliki budaya maritim yang kuat dan terkenal dengan tarian tradisional seperti Tari Gunde.</p>
                     </div>
                 </div>
-
                 <div class="suku-card">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKkDXQke_2l18guP24oXdA0zszCLKkwvC2ug&s" alt="Suku Bolaang Mongondow">
                     <div class="suku-content">
                         <div class="suku-number">03</div>
                         <h3>Suku Bolaang Mongondow</h3>
-                        <p>
-                            Suku Bolaang Mongondow berasal dari wilayah Bolaang Mongondow. 
-                            Mereka memiliki bahasa, pakaian adat, dan tradisi yang unik. 
-                            Kehadiran mereka menambah keberagaman budaya di Kota Manado.
-                        </p>
+                        <p>Suku Bolaang Mongondow berasal dari wilayah Bolaang Mongondow dengan bahasa, pakaian adat, dan tradisi yang unik, menambah keberagaman budaya Kota Manado.</p>
                     </div>
                 </div>
-
             </div>
 
             <div class="suku-info">
-                <h3>Fakta Menarik</h3>
-                <p>
-                    Suku Minahasa tidak memiliki sistem kasta seperti banyak suku lain di dunia. 
-                    Semua orang dianggap setara, dan keputusan penting biasanya dibuat bersama melalui musyawarah.
-                </p>
+                <h3>Fakta Menarik #1</h3>
+                <p>Suku Minahasa tidak memiliki sistem kasta seperti banyak suku lain di dunia. Semua orang dianggap setara, dan keputusan penting biasanya dibuat bersama melalui musyawarah.</p>
             </div>
 
+            <div class="suku-info" style="margin-top: 1.5rem;">
+                <h3>Fakta Menarik #2</h3>
+                <p>Taman Nasional Bunaken adalah salah satu taman laut pertama yang ditetapkan di Indonesia (1991) dan diakui sebagai salah satu pusat keanekaragaman hayati laut tertinggi di dunia, dengan lebih dari 390 spesies terumbu karang — mewakili 70% dari seluruh spesies karang di Indo-Pasifik.</p>
+            </div>
+
+            <div class="suku-info" style="margin-top: 1.5rem;">
+                <h3>Fakta Menarik #3</h3>
+                <p>Kolintang, alat musik tradisional Minahasa, telah resmi diakui oleh UNESCO sebagai Warisan Budaya Takbenda. Uniknya, satu ansambel Kolintang terdiri dari berbagai ukuran instrumen yang masing-masing menghasilkan nada berbeda, mirip seperti orkestra mini yang seluruhnya terbuat dari kayu lokal.</p>
+            </div>
         </div>
     </section>
 
@@ -326,100 +311,147 @@
         <div class="container">
             <div class="tourism-item">
                 <div class="tourism-image">
-                    <img src="iamges/TamanNasionalBunaken.jpg" alt="Taman Nasional Bunaken">
+                    <img src="iamges/bunaken.jpg" alt="Taman Nasional Bunaken">
                 </div>
                 <div class="tourism-content">
                     <div class="tourism-number">01</div>
                     <h3>Taman Nasional Bunaken</h3>
-                    <p>Taman Nasional Bunaken adalah surga bagi para penyelam dengan keindahan terumbu karang dan keanekaragaman hayati laut yang luar biasa. Dengan visibility air yang jernih hingga 35-40 meter, Bunaken menawarkan pengalaman diving dan snorkeling yang tak terlupakan dengan pemandangan dinding karang vertikal yang spektakuler.</p>
+                    <p>Taman Nasional Bunaken adalah surga bagi para penyelam dengan keindahan terumbu karang dan keanekaragaman hayati laut yang luar biasa. Dengan visibility air yang jernih hingga 35–40 meter, Bunaken menawarkan pengalaman diving dan snorkeling yang tak terlupakan.</p>
                 </div>
             </div>
 
-            <div class="tourism-item reverse" style="margin-top: 3rem;">
+            <div class="tourism-item reverse">
                 <div class="tourism-image">
                     <img src="https://zjglidcehtsqqqhbdxyp.supabase.co/storage/v1/object/public/atourin/images/destination/manado/pulau-siladen-profile1645955135.jpeg?x-image-process=image/resize,p_100,limit_1/imageslim" alt="Pulau Siladen">
                 </div>
                 <div class="tourism-content">
                     <div class="tourism-number">02</div>
                     <h3>Pulau Siladen</h3>
-                    <p>Pulau Siladen adalah pulau kecil yang terletak di kawasan Taman Nasional Bunaken. Pulau ini menawarkan pantai berpasir putih yang indah dan air laut yang jernih. Siladen menjadi tempat yang sempurna untuk bersantai, snorkeling, atau sekadar menikmati keindahan alam tropis yang masih asri.</p>
+                    <p>Pulau Siladen adalah pulau kecil yang terletak di kawasan Taman Nasional Bunaken. Pulau ini menawarkan pantai berpasir putih yang indah dan air laut yang jernih, tempat yang sempurna untuk bersantai dan snorkeling.</p>
                 </div>
             </div>
 
-            <div class="tourism-item" style="margin-top: 3rem;">
+            <div class="tourism-item">
                 <div class="tourism-image">
                     <img src="iamges/DanauTondano.jpg" alt="Danau Tondano">
                 </div>
                 <div class="tourism-content">
                     <div class="tourism-number">03</div>
                     <h3>Danau Tondano</h3>
-                    <p>Danau Tondano adalah danau vulkanik terbesar di Sulawesi Utara dengan pemandangan yang menakjubkan. Danau ini dikelilingi oleh pegunungan hijau dan menawarkan suasana yang sejuk dan tenang. Pengunjung dapat menikmati pemandangan danau sambil bersantai di restoran-restoran tepi danau atau berkeliling dengan perahu.</p>
+                    <p>Danau Tondano adalah danau vulkanik terbesar di Sulawesi Utara dengan pemandangan yang menakjubkan. Dikelilingi oleh pegunungan hijau, danau ini menawarkan suasana yang sejuk dan tenang.</p>
                 </div>
             </div>
 
-            <div class="tourism-item reverse" style="margin-top: 3rem;">
+            <div class="tourism-item reverse">
                 <div class="tourism-image">
                     <img src="https://destinasindo.com/wp-content/uploads/2025/03/2024-04-10-1.webp" alt="Bukit Doa Mahawu">
                 </div>
                 <div class="tourism-content">
                     <div class="tourism-number">04</div>
                     <h3>Bukit Doa Mahawu</h3>
-                    <p>Bukit Doa Mahawu atau Bukit Kasih adalah kompleks tempat ibadah yang unik di Tomohon, dekat Manado. Di tempat ini terdapat berbagai rumah ibadah dari lima agama yang diakui di Indonesia, melambangkan toleransi dan kerukunan beragama. Dari bukit ini, pengunjung dapat menikmati pemandangan kota Tomohon dan sekitarnya.</p>
+                    <p>Bukit Doa Mahawu atau Bukit Kasih adalah kompleks tempat ibadah unik di Tomohon. Di sini terdapat berbagai rumah ibadah dari lima agama, melambangkan toleransi dan kerukunan beragama di Indonesia.</p>
                 </div>
             </div>
 
-            <div class="tourism-item" style="margin-top: 3rem;">
+            <div class="tourism-item">
                 <div class="tourism-image">
                     <img src="iamges/GunungLokon1.jpg" alt="Gunung Lokon">
                 </div>
                 <div class="tourism-content">
                     <div class="tourism-number">05</div>
                     <h3>Gunung Lokon</h3>
-                    <p>Gunung Lokon adalah gunung berapi aktif yang terletak di Tomohon. Meskipun masih aktif, pendakian ke gunung ini menawarkan pemandangan kawah yang mempesona dan panorama alam sekitar yang indah. Aktivitas vulkanik gunung ini menciptakan fenomena alam yang menarik untuk diamati dari jarak aman.</p>
+                    <p>Gunung Lokon adalah gunung berapi aktif yang terletak di Tomohon. Meskipun masih aktif, pendakian ke gunung ini menawarkan pemandangan kawah yang mempesona dan panorama alam sekitar yang luar biasa indah.</p>
                 </div>
             </div>
         </div>
     </section>
 
-
-
     <!-- Footer -->
     <footer>
-        <p>© 2025 Janda&Duda Team. All rights reserved.</p>
+        <p>© 2025 Janda&amp;Duda Team. All rights reserved.</p>
     </footer>
 
     <script>
-        // Initialize Leaflet Map centered on Manado
-        const map = L.map('map').setView([1.4748, 124.8421], 12);
+        // --- Custom Cursor ---
+        const cursor = document.getElementById('cursor');
+        const cursorRing = document.getElementById('cursorRing');
+        let mouseX = 0, mouseY = 0;
+        let ringX = 0, ringY = 0;
 
-        // Add OpenStreetMap tiles
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursor.style.left = mouseX + 'px';
+            cursor.style.top = mouseY + 'px';
+        });
+
+        function animateRing() {
+            ringX += (mouseX - ringX) * 0.12;
+            ringY += (mouseY - ringY) * 0.12;
+            cursorRing.style.left = ringX + 'px';
+            cursorRing.style.top = ringY + 'px';
+            requestAnimationFrame(animateRing);
+        }
+        animateRing();
+
+        document.querySelectorAll('a, button, img').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(2)';
+                cursorRing.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                cursorRing.style.opacity = '1';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursorRing.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursorRing.style.opacity = '0.5';
+            });
+        });
+
+        // --- Leaflet Map ---
+        const map = L.map('map').setView([1.4748, 124.8421], 12);
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Tiles &copy; Esri &mdash; Source: Esri, Maxar, Earthstar Geographics',
             maxZoom: 19
         }).addTo(map);
 
-        // Add a marker for Manado
+        // Label overlay agar nama tempat tetap terlihat
+        L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-hybrid/{z}/{x}/{y}{r}.png', {
+            attribution: '',
+            maxZoom: 19,
+            opacity: 0.5
+        }).addTo(map);
         const manadoMarker = L.marker([1.4748, 124.8421]).addTo(map);
         manadoMarker.bindPopup('<b>Kota Manado</b><br>Sulawesi Utara, Indonesia').openPopup();
-
-        // Add marker for Bunaken
         const bunakenMarker = L.marker([1.6172, 124.7631]).addTo(map);
         bunakenMarker.bindPopup('<b>Taman Nasional Bunaken</b><br>Destinasi Diving Terkenal');
 
-        // Smooth scrolling for navigation links
+        // --- Smooth Scrolling ---
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
+                    window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
                 }
             });
         });
-    </script>
 
+        // --- Scroll Reveal ---
+        const revealEls = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.08 });
+        revealEls.forEach(el => observer.observe(el));
+
+        // --- Parallax Hero ---
+        window.addEventListener('scroll', () => {
+            const heroBg = document.querySelector('.hero-bg');
+            if (heroBg) {
+                heroBg.style.transform = `scale(1.05) translateY(${window.scrollY * 0.25}px)`;
+            }
+        });
+    </script>
 </body>
 </html>

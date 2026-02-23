@@ -1,241 +1,503 @@
+/* --- IMPORT FONTS --- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&display=swap');
+
+/* --- RESET & CORE STYLES --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+:root {
+    --primary-bg: #0a0a0a;
+    --secondary-bg: #111111;
+    --card-bg: #161616;
+    --accent: #c8873a;
+    --accent-light: #e8a55a;
+    --accent-glow: rgba(200, 135, 58, 0.15);
+    --text-main: #f0ede8;
+    --text-dim: #888880;
+    --text-muted: #555550;
+    --card-border: #252520;
+    --card-border-hover: #3a3a35;
+}
+
+/* --- CUSTOM CURSOR --- */
+*, *::before, *::after {
+    cursor: none;
+}
+
+.cursor {
+    width: 12px;
+    height: 12px;
+    background: var(--accent);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.15s ease, background 0.3s;
+    transform: translate(-50%, -50%);
+}
+
+.cursor-ring {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s;
+    transform: translate(-50%, -50%);
+    opacity: 0.5;
+}
+
 body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(rgba(0, 60, 90, 0.75),
-                rgba(0, 120, 170, 0.75)),
-            url("https://images.unsplash.com/photo-1589308078054-832c4a5b8c5c?q=80&w=1920&auto=format&fit=crop");
-    
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-    line-height: 1.6;
-    color: #333;
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--primary-bg);
+    color: var(--text-main);
+    line-height: 1.7;
     overflow-x: hidden;
 }
 
-/* Navigation */
+/* --- NOISE TEXTURE OVERLAY --- */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9997;
+    opacity: 0.4;
+}
+
+/* --- IMAGE CONTROL --- */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    filter: grayscale(100%) brightness(0.85);
+    transition: filter 0.6s cubic-bezier(0.23, 1, 0.32, 1), transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+img:hover {
+    filter: none !important;
+    transform: scale(1.04);
+}
+
+/* Trigger color on parent hover for contained images */
+.culinary-image:hover img,
+.tourism-image:hover img,
+.nature-card:hover img,
+.suku-card:hover img,
+.culture-card:hover img {
+    filter: none !important;
+    transform: scale(1.04);
+}
+
+/* --- NAVIGATION --- */
 nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background: rgba(8, 8, 8, 0.92);
+    border-bottom: 1px solid var(--card-border);
     z-index: 1000;
     padding: 1rem 5%;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 }
 
 .nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     max-width: 1400px;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.logo img {
-    height: 50px;
+.nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+    color: var(--accent);
 }
 
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 2.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .nav-menu a {
     text-decoration: none;
-    color: #333;
-    font-weight: 500;
+    color: var(--text-dim);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
     transition: color 0.3s;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.3s ease;
 }
 
 .nav-menu a:hover {
-    color: #ff6b35;
+    color: var(--text-main);
 }
 
-/* Hero Section */
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+/* --- HERO SECTION --- */
 .hero {
     height: 100vh;
     position: relative;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: white;
-    padding-top: 80px;
-}
-
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background:
-        linear-gradient(rgba(0, 80, 120, 0.6),
-            rgba(0, 40, 80, 0.8)),
-        url("https://www.transparenttextures.com/patterns/palm-leaf.png");
-    opacity: 0.25;
-    z-index: -1;
+    background: #000;
+    overflow: hidden;
 }
 
 .hero-bg {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0.3;
     z-index: 0;
+    filter: grayscale(60%) !important;
+    transform: scale(1.05) !important;
+    transition: none !important;
+}
+
+.hero-bg:hover {
+    filter: grayscale(60%) !important;
+    transform: scale(1.05) !important;
+}
+
+/* Gradient vignette over hero */
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.7) 100%),
+        linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.8) 100%);
+    z-index: 1;
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
+    padding: 2rem;
+}
+
+.hero-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 8px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    display: block;
+    animation: fadeInDown 1s ease forwards;
+    opacity: 0;
+    animation-delay: 0.2s;
 }
 
 .hero h1 {
-    font-size: 4rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
     font-weight: 300;
+    letter-spacing: 14px;
     margin-bottom: 0.5rem;
-    letter-spacing: 0.3rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    animation: fadeInDown 1s ease forwards;
+    opacity: 0;
+    animation-delay: 0.4s;
 }
 
 .hero h2 {
-    font-size: 6rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    letter-spacing: 0.5rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(5rem, 15vw, 10rem);
+    font-weight: 400;
+    letter-spacing: 8px;
+    line-height: 0.9;
+    background: linear-gradient(135deg, #fff 0%, var(--accent-light) 50%, #fff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+    animation-delay: 0.6s;
 }
 
 .hero-subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+    margin-top: 2rem;
+    font-size: 0.75rem;
+    letter-spacing: 5px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+    animation-delay: 0.9s;
 }
 
 .hero-description {
-    font-size: 1rem;
-    max-width: 600px;
-    margin: 0 auto;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+    animation-delay: 1.1s;
 }
 
-/* Section Styles */
-section {
-    animation: fadeUp 1s ease;
+.section-divider {
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    margin: 1.2rem auto 3rem;
 }
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+
+/* Scroll indicator */
+.hero-scroll {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+    animation-delay: 1.5s;
+}
+
+.hero-scroll span {
+    font-size: 0.6rem;
+    letter-spacing: 4px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(0.7); }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- GLOBAL LAYOUT --- */
+section {
+    padding: 120px 5%;
 }
 
 .container {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 .section-title {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
     text-align: center;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, var(--text-main) 0%, var(--accent-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-.section-divider {
-    width: 100px;
-    height: 3px;
-    background: #ff6b35;
-    margin: 1rem auto 3rem;
+/* --- ABOUT SECTION --- */
+#sejarah {
+    background-color: var(--primary-bg);
+    position: relative;
 }
 
-/* About Section */
+#sejarah::before {
+    content: 'MANADO';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(6rem, 20vw, 16rem);
+    color: rgba(255,255,255,0.018);
+    letter-spacing: 10px;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    margin-top: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
 .about-card {
-    padding: 2rem;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: border-color 0.4s, transform 0.4s;
+    overflow: hidden;
+}
+
+.about-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+    transition: height 0.5s ease;
+}
+
+.about-card:hover::before {
+    height: 100%;
+}
+
+.about-card:hover {
+    border-color: var(--card-border-hover);
+    transform: translateY(-4px);
 }
 
 .about-number {
-    font-size: 3rem;
-    font-weight: 700;
-    color: #ff6b35;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4rem;
+    color: rgba(200, 135, 58, 0.15);
+    line-height: 1;
     margin-bottom: 1rem;
+    letter-spacing: 2px;
 }
 
 .about-card h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+    color: var(--text-main);
+    font-weight: 600;
 }
 
 .about-card p {
-    line-height: 1.8;
-    color: white;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    line-height: 1.9;
 }
 
-/* Nature Section */
+/* --- MAP SECTION --- */
+.map-section {
+    background-color: var(--secondary-bg);
+    padding: 120px 5%;
+    position: relative;
+}
+
+.map-section p {
+    color: var(--text-dim);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+#map {
+    width: 100%;
+    height: 520px;
+    border: 1px solid var(--card-border);
+    margin-top: 2rem;
+}
+
+/* --- NATURE SECTION --- */
 .nature-section {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(8px);
-    color: white;
+    background-color: var(--primary-bg);
+    padding: 120px 5%;
 }
 
 .nature-header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 5rem;
 }
 
 .nature-header h2 {
-    font-size: 3rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 5px;
     margin-bottom: 1rem;
+    color: var(--accent);
 }
 
 .nature-header p {
-    font-size: 1.1rem;
-    color: white;
-    max-width: 800px;
+    color: var(--text-dim);
+    max-width: 600px;
     margin: 0 auto;
+    line-height: 1.9;
+    font-size: 0.9rem;
 }
 
 .nature-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    margin-top: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 0;
 }
 
 .nature-card {
-    position: relative;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
     overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    position: relative;
+    aspect-ratio: 4/3;
 }
 
 .nature-card img {
     width: 100%;
-    height: 400px;
+    height: 100%;
     object-fit: cover;
-    transition: transform 0.5s;
-}
-
-.nature-card:hover img {
-    transform: scale(1.1);
 }
 
 .nature-overlay {
@@ -243,67 +505,101 @@ section {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.8));
-    padding: 2rem;
-    color: white;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+    padding: 2rem 1.5rem 1.5rem;
+    transform: translateY(10px);
+    transition: transform 0.4s ease;
+}
+
+.nature-card:hover .nature-overlay {
+    transform: translateY(0);
 }
 
 .nature-overlay h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 0.65rem;
+    letter-spacing: 4px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+}
+
+.nature-overlay p {
+    color: var(--text-main);
+    font-size: 1rem;
+    font-family: 'Playfair Display', serif;
 }
 
 .nature-info-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    margin-top: 4rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
 }
 
 .nature-info-card {
-    padding: 2rem;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.4s, transform 0.4s;
+}
+
+.nature-info-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.nature-info-card:hover::after {
+    transform: scaleX(1);
+}
+
+.nature-info-card:hover {
+    border-color: var(--card-border-hover);
+    transform: translateY(-4px);
 }
 
 .nature-info-number {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #ff6b35;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    color: rgba(200, 135, 58, 0.15);
+    line-height: 1;
     margin-bottom: 1rem;
 }
 
-/* Map Section */
-.map-section {
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(8px);
-    color: white;
+.nature-info-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--text-main);
 }
 
-#map {
-    width: 100%;
-    height: 500px;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    margin-top: 2rem;
+.nature-info-card p {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    line-height: 1.9;
 }
 
-/* Culinary Section */
+/* --- CULINARY SECTION --- */
 .culinary-section {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(8px);
-    color: white;
-}
-
-.culinary-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    margin-top: 3rem;
+    background-color: var(--secondary-bg);
+    padding: 120px 5%;
+    position: relative;
 }
 
 .culinary-item {
     display: flex;
-    gap: 2rem;
     align-items: center;
+    gap: 5rem;
+    margin-top: 5rem;
 }
 
 .culinary-item.reverse {
@@ -311,202 +607,173 @@ section {
 }
 
 .culinary-image {
-    flex: 1;
+    flex: 1.1;
     overflow: hidden;
-    border-radius: 10px;
+    border: 1px solid var(--card-border);
+    position: relative;
+}
+
+.culinary-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid var(--accent);
+    opacity: 0;
+    z-index: 2;
+    transition: opacity 0.4s, transform 0.4s;
+    transform: scale(0.95);
+}
+
+.culinary-image:hover::before {
+    opacity: 0.3;
+    transform: scale(1);
 }
 
 .culinary-image img {
     width: 100%;
-    height: 300px;
+    height: 400px;
     object-fit: cover;
-    transition: transform 0.5s;
-}
-
-.culinary-image img:hover {
-    transform: scale(1.1);
 }
 
 .culinary-content {
     flex: 1;
 }
 
+.culinary-subtitle {
+    font-size: 0.65rem;
+    letter-spacing: 4px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+    display: block;
+}
+
 .culinary-number {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #ff6b35;
-    margin-bottom: 1rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5rem;
+    color: rgba(200, 135, 58, 0.1);
+    line-height: 1;
+    margin-bottom: -0.5rem;
+    letter-spacing: 2px;
 }
 
 .culinary-content h3 {
+    font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
+    color: var(--text-main);
+    font-weight: 700;
+    line-height: 1.3;
 }
 
 .culinary-content p {
-    color: white;
-    line-height: 1.8;
+    color: var(--text-dim);
+    line-height: 1.9;
+    font-size: 0.9rem;
 }
 
-.culinary-subtitle {
-    font-size: 1rem;
-    color: #999;
-    margin-bottom: 1rem;
+/* Thin horizontal rule between culinary items */
+.culinary-item + .culinary-item {
+    padding-top: 5rem;
+    border-top: 1px solid var(--card-border);
 }
 
-/* Culture Section */
+/* --- CULTURE SECTION --- */
 .culture-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background-color: var(--primary-bg);
+    padding: 120px 5%;
     text-align: center;
+    position: relative;
 }
 
-.culture-section h2 {
-    font-size: 4rem;
-    margin-bottom: 0.5rem;
+.culture-section > .container > h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    letter-spacing: 8px;
+    line-height: 1.1;
+    background: linear-gradient(135deg, var(--text-main) 0%, var(--accent-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .culture-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 4rem;
+    text-align: left;
 }
 
 .culture-card {
-    background: white;
-    color: #333;
-    border-radius: 10px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
     overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s, border-color 0.4s;
+}
+
+.culture-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--card-border-hover);
 }
 
 .culture-card img {
     width: 100%;
-    height: 250px;
+    height: 240px;
     object-fit: cover;
 }
 
 .culture-card-content {
     padding: 2rem;
-    text-align: left;
 }
 
 .culture-number {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #667eea;
-    margin-bottom: 1rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: rgba(200, 135, 58, 0.15);
+    line-height: 1;
+    margin-bottom: 0.5rem;
 }
 
 .culture-card h3 {
-    font-size: 1.8rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
     margin-bottom: 1rem;
+    color: var(--text-main);
 }
 
-.culture-card p {
-    color: white;
-    line-height: 1.8;
-}
-
-/* Tourism Section */
-.tourism-section {
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(8px);
-    color: white;
-}
-
-.tourism-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
-}
-
-.tourism-item {
-    display: flex;
-    gap: 2rem;
-    align-items: flex-start;
-}
-
-.tourism-item.reverse {
-    flex-direction: row-reverse;
-}
-
-.tourism-image {
-    flex: 1;
-    overflow: hidden;
-    border-radius: 10px;
-}
-
-.tourism-image img {
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-    transition: transform 0.5s;
-}
-
-.tourism-image img:hover {
-    transform: scale(1.05);
-}
-
-.tourism-content {
-    flex: 1;
-}
-
-.tourism-number {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #ff6b35;
-    margin-bottom: 1rem;
-}
-
-.tourism-content h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-}
-
-.tourism-content p {
-    color: white;
-    line-height: 1.8;
-}
-
-/* Footer */
-footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 2rem;
-}
-
+/* --- SUKU SECTION --- */
 .suku-section {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(8px);
-    color: white;
-    padding: 80px 5%;
+    background-color: var(--secondary-bg);
+    padding: 120px 5%;
 }
 
 .suku-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
     margin-top: 3rem;
 }
 
 .suku-card {
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 10px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
     overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s, border-color 0.4s;
 }
 
 .suku-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-6px);
+    border-color: var(--card-border-hover);
 }
 
 .suku-card img {
     width: 100%;
-    height: 250px;
+    height: 260px;
     object-fit: cover;
 }
 
@@ -515,80 +782,212 @@ footer {
 }
 
 .suku-number {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #ff6b35;
-    margin-bottom: 1rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: rgba(200, 135, 58, 0.15);
+    line-height: 1;
+    margin-bottom: 0.5rem;
 }
 
-.suku-content h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
+.suku-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-main);
 }
 
-.suku-content p {
-    color: white;
-    line-height: 1.8;
+.suku-card p {
+    color: var(--text-dim);
+    font-size: 0.88rem;
+    line-height: 1.9;
 }
 
 .suku-info {
     margin-top: 4rem;
-    padding: 2rem;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-    text-align: center;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-left: 3px solid var(--accent);
+    padding: 2.5rem 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.suku-info::before {
+    content: '"';
+    position: absolute;
+    top: -1rem;
+    right: 2rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: rgba(200, 135, 58, 0.08);
+    line-height: 1;
 }
 
 .suku-info h3 {
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    color: var(--accent);
+    text-transform: uppercase;
     margin-bottom: 1rem;
-    font-size: 2rem;
-    color: #ff6b35;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2rem;
-    }
+.suku-info p {
+    color: var(--text-dim);
+    line-height: 1.9;
+    font-size: 0.9rem;
+    font-style: italic;
+}
 
-    .hero h2 {
-        font-size: 3rem;
-    }
+/* --- TOURISM SECTION --- */
+.tourism-section {
+    background-color: var(--primary-bg);
+    padding: 120px 5%;
+}
 
-    .about-card p,
-    .nature-header p,
-    .culinary-content p,
-    .tourism-content p,
-    .culture-card p {
-        color: #eeeeee;
-    }
+.tourism-item {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+}
 
+.tourism-item + .tourism-item {
+    margin-top: 6rem;
+    padding-top: 6rem;
+    border-top: 1px solid var(--card-border);
+}
+
+.tourism-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.tourism-image {
+    flex: 1.1;
+    overflow: hidden;
+    border: 1px solid var(--card-border);
+    position: relative;
+}
+
+.tourism-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 60%, rgba(200, 135, 58, 0.1) 100%);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.tourism-image:hover::before {
+    opacity: 1;
+}
+
+.tourism-image img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+}
+
+.tourism-content {
+    flex: 1;
+}
+
+.tourism-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 6rem;
+    color: rgba(200, 135, 58, 0.08);
+    line-height: 1;
+    margin-bottom: -1rem;
+    letter-spacing: 3px;
+}
+
+.tourism-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    margin-bottom: 1.2rem;
+    color: var(--text-main);
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.tourism-content p {
+    color: var(--text-dim);
+    line-height: 1.9;
+    font-size: 0.9rem;
+}
+
+/* --- FOOTER --- */
+footer {
+    background: #050505;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 5rem 2rem;
+    border-top: 1px solid var(--card-border);
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    position: relative;
+}
+
+footer::before {
+    content: 'MANADO';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 10vw, 8rem);
+    color: rgba(255,255,255,0.02);
+    letter-spacing: 10px;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+/* --- REVEAL ANIMATION --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s cubic-bezier(0.23, 1, 0.32, 1), transform 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
     .culinary-item,
     .culinary-item.reverse,
     .tourism-item,
     .tourism-item.reverse {
         flex-direction: column;
+        gap: 2rem;
     }
 
+    .culinary-item + .culinary-item {
+        padding-top: 3rem;
+    }
+
+    .tourism-item + .tourism-item {
+        margin-top: 3rem;
+        padding-top: 3rem;
+    }
+
+    section {
+        padding: 80px 5%;
+    }
+
+    .hero h2 {
+        font-size: 5rem;
+    }
+}
+
+@media (max-width: 600px) {
     .nav-menu {
         gap: 1rem;
-        font-size: 0.9rem;
     }
 
-    #map {
-        height: 400px;
+    .hero h2 {
+        font-size: 3.5rem;
     }
 }
-
-/* Placeholder Image Styles */
-.placeholder-img {
-    background: linear-gradient(45deg, #e0e0e0 25%, #f0f0f0 25%, #f0f0f0 50%, #e0e0e0 50%, #e0e0e0 75%, #f0f0f0 75%, #f0f0f0);
-    background-size: 40px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #999;
-    font-size: 1.2rem;
-    font-weight: 600;
-}
-
